@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brown: #8b5e3c;
+  --cream: #f8ede3;
+  --gold: #d4af37;
+  --blush: #e5989b;
+  --dark: #2c2c2c;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--dark);
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background-color: #fdf4ec;
+}
+
+/* ── Rich layered site background ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(160deg,
+      #fdf4ec 0%,
+      #fce8d8 20%,
+      #fdf0e8 40%,
+      #fce4e8 65%,
+      #fdf0e0 85%,
+      #fdf4ec 100%
+    );
+}
+
+/* ── Floral / mandala texture overlay ── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='0.8'%3E%3Ccircle cx='60' cy='60' r='30'/%3E%3Ccircle cx='60' cy='60' r='20'/%3E%3Ccircle cx='60' cy='60' r='10'/%3E%3Cline x1='60' y1='30' x2='60' y2='90'/%3E%3Cline x1='30' y1='60' x2='90' y2='60'/%3E%3Cline x1='39' y1='39' x2='81' y2='81'/%3E%3Cline x1='81' y1='39' x2='39' y2='81'/%3E%3Ccircle cx='60' cy='30' r='3'/%3E%3Ccircle cx='60' cy='90' r='3'/%3E%3Ccircle cx='30' cy='60' r='3'/%3E%3Ccircle cx='90' cy='60' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #fdf4ec; }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* ── Gold shimmer ── */
+.gold-shimmer {
+  background: linear-gradient(90deg, #b8960c 0%, #d4af37 25%, #f5e17a 50%, #d4af37 75%, #b8960c 100%);
+  background-size: 200% auto;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* ── Glass card ── */
+.glass {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+/* ── Keyframes ── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes particle-float {
+  0%   { transform: translateY(100vh) rotate(0deg);   opacity: 1; }
+  100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+}
+
+.particle {
+  animation: particle-float linear infinite;
+}
+
+/* ── Section divider utility ── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,175,55,0.3), transparent);
+}
