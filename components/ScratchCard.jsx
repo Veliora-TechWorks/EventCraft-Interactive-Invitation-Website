@@ -10,8 +10,10 @@ export default function ScratchCard({ event, compact = false }) {
   const [revealed, setRevealed] = useState(false);
   const [percent,  setPercent]  = useState(0); // eslint-disable-line
   const [confetti, setConfetti] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const drawing  = useRef(false);
   const lastPos  = useRef(null);
+  const popupShown = useRef(false);
 
   const getPos = (e, canvas) => {
     const r = canvas.getBoundingClientRect();
@@ -35,13 +37,29 @@ export default function ScratchCard({ event, compact = false }) {
     ctx.fill();
     const canvas = canvasRef.current;
     const p = calcPercent(ctx, canvas.width, canvas.height);
-    if (p >= SCRATCH_THRESHOLD && !revealed) {
-      setRevealed(true);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      setConfetti(true);
-      setTimeout(() => setConfetti(false), 3200);
+    setPercent(p);
+    if (p >= SCRATCH_THRESHOLD && !revealed && !popupShown.current) {
+      popupShown.current = true;
+      setShowPopup(true);
     }
   }, [calcPercent, revealed]);
+
+  const triggerReveal = useCallback((canvas) => {
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    setShowPopup(false);
+    setRevealed(true);
+    setConfetti(true);
+    setTimeout(() => setConfetti(false), 3200);
+  }, []);
+
+  useEffect(() => {
+    if (!showPopup) return;
+    const t = setTimeout(() => {
+      if (canvasRef.current) triggerReveal(canvasRef.current);
+    }, 1800);
+    return () => clearTimeout(t);
+  }, [showPopup, triggerReveal]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -164,7 +182,42 @@ export default function ScratchCard({ event, compact = false }) {
         )}
       </AnimatePresence>
 
-
+      {/* ── Reveal popup ── */}
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            key="popup"
+            initial={{ opacity:0, scale:0.75, y:20 }}
+            animate={{ opacity:1, scale:1, y:0 }}
+            exit={{ opacity:0, scale:0.85, y:10 }}
+            transition={{ type:"spring", stiffness:320, damping:22 }}
+            className="absolute inset-0 z-30 flex items-center justify-center"
+            style={{ background:"rgba(0,0,0,0.55)", backdropFilter:"blur(6px)" }}>
+            <div className="flex flex-col items-center gap-3 px-6 py-5 rounded-3xl border border-gold/30 shadow-2xl text-center"
+              style={{ background:"linear-gradient(145deg,rgba(253,244,236,0.97),rgba(240,217,197,0.97))", maxWidth:"80%" }}>
+              <motion.div
+                animate={{ rotate:[0,15,-15,10,-10,0], scale:[1,1.2,1] }}
+                transition={{ duration:0.7, delay:0.1 }}
+                className="text-4xl">✨</motion.div>
+              <p className="font-playfair text-brown text-lg font-bold leading-tight">Almost there!</p>
+              <p className="font-poppins text-dark/60 text-xs">Revealing your invitation…</p>
+              {/* progress bar */}
+              <div className="w-full h-1.5 rounded-full bg-gold/20 overflow-hidden">
+                <motion.div className="h-full rounded-full gold-shimmer"
+                  initial={{ width:"20%" }}
+                  animate={{ width:"100%" }}
+                  transition={{ duration:1.6, ease:"linear" }} />
+              </div>
+              <motion.button
+                whileHover={{ scale:1.05 }} whileTap={{ scale:0.95 }}
+                onClick={() => canvasRef.current && triggerReveal(canvasRef.current)}
+                className="gold-shimmer text-white font-poppins font-semibold text-xs px-6 py-2 rounded-full shadow-lg tracking-widest uppercase mt-1">
+                Reveal Now ✦
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

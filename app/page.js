@@ -4,10 +4,8 @@ import dynamic from "next/dynamic";
 import Navbar from "../components/Navbar";
 import Hero from "../sections/Hero";
 import EventsScratch from "../sections/EventsScratch";
-import Timeline from "../sections/Timeline";
 import Gallery from "../sections/Gallery";
 import Venue from "../sections/Venue";
-import RSVP from "../sections/RSVP";
 import Footer from "../sections/Footer";
 import Countdown from "../components/Countdown";
 
@@ -29,16 +27,11 @@ export default function Home() {
         <>
           <Divider />
           <EventsScratch />
-          <Divider />
-          <Timeline />
-          <Divider />
           <Countdown />
           <Divider />
           <Gallery />
           <Divider />
           <Venue />
-          <Divider />
-          <RSVP />
           <Footer />
         </>
       )}
