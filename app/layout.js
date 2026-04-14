@@ -3,6 +3,12 @@ import "./globals.css";
 export const metadata = {
   title: "Shubham & Apurva — Wedding Invitation",
   description: "Join us to celebrate the wedding of Shubham & Apurva",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
