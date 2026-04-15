@@ -144,12 +144,12 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+919876543210"
+                <a href="tel:+918805549435"
                   className="flex items-center gap-3 md:justify-end group">
                   <div className="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center group-hover:border-gold transition-colors">
                     <FaPhone className="text-gold text-xs" />
                   </div>
-                  <span className="font-poppins text-cream/60 text-xs group-hover:text-gold transition-colors">+91 98765 43210</span>
+                  <span className="font-poppins text-cream/60 text-xs group-hover:text-gold transition-colors">+91 88055 49435</span>
                 </a>
               </li>
               <li>
@@ -166,7 +166,7 @@ export default function Footer() {
                   <div className="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center">
                     <FaMapMarkerAlt className="text-gold text-xs" />
                   </div>
-                  <span className="font-poppins text-cream/60 text-xs">Pune, Maharashtra</span>
+                  <span className="font-poppins text-cream/60 text-xs">Nashik, Maharashtra</span>
                 </div>
               </li>
             </ul>
