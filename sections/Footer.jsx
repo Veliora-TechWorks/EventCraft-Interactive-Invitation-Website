@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { FaInstagram, FaFacebook, FaYoutube, FaHeart, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const SCHEDULE = [
-  { date: "12 May", event: "Mehendi Ceremony", time: "5 PM", emoji: "🌿" },
-  { date: "13 May", event: "Seemant Pujan",    time: "9 AM", emoji: "🪔" },
-  { date: "13 May", event: "Haldi Ceremony",   time: "1 PM", emoji: "🌼" },
-  { date: "13 May", event: "Sangeet Night",    time: "7 PM", emoji: "✨" },
-  { date: "14 May", event: "Lagna — Wedding",  time: "10 AM", emoji: "💍" },
+  { date: "12 May", event: "Mehendi Ceremony", time: "6:30 PM", emoji: "🌿" },
+  { date: "13 May", event: "Seemant Pujan",    time: "12:30 PM", emoji: "🪔" },
+  { date: "13 May", event: "Haldi Ceremony",   time: "3:30 PM", emoji: "🌼" },
+  { date: "13 May", event: "Sangeet Night",    time: "7:00 PM", emoji: "✨" },
+  { date: "14 May", event: "Lagna — Wedding",  time: "10:25 AM", emoji: "💍" },
 ];
 
 const SOCIALS = [
@@ -61,7 +61,7 @@ export default function Footer() {
           </p>
           <h2 className="font-vibes text-cream leading-none mb-1"
             style={{ fontSize: "clamp(3rem, 10vw, 6rem)", textShadow: "0 0 40px rgba(212,175,55,0.3)" }}>
-            Shubham
+            Apurva
           </h2>
           <div className="flex items-center justify-center gap-3 my-2">
             <div className="h-px w-12 bg-gold/40" />
@@ -70,9 +70,9 @@ export default function Footer() {
           </div>
           <h2 className="font-vibes text-cream leading-none"
             style={{ fontSize: "clamp(3rem, 10vw, 6rem)", textShadow: "0 0 40px rgba(212,175,55,0.3)" }}>
-            Apurva
+            Shubham
           </h2>
-          <p className="font-playfair italic text-gold/80 text-lg mt-4">May 14, 2026 · Pune</p>
+          <p className="font-playfair italic text-gold/80 text-lg mt-4">May 14, 2026 · Nashik</p>
         </motion.div>
 
         {/* ── 3-column grid ── */}
@@ -153,12 +153,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:shubhamapurva2026@gmail.com"
+                <a href="mailto:apurvaShubham2026@gmail.com"
                   className="flex items-center gap-3 md:justify-end group">
                   <div className="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center group-hover:border-gold transition-colors">
                     <FaEnvelope className="text-gold text-xs" />
                   </div>
-                  <span className="font-poppins text-cream/60 text-xs group-hover:text-gold transition-colors">shubhamapurva2026@gmail.com</span>
+                  <span className="font-poppins text-cream/60 text-xs group-hover:text-gold transition-colors">apurvaShubham2026@gmail.com</span>
                 </a>
               </li>
               <li>
@@ -192,7 +192,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="border-t border-gold/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="font-poppins text-cream/20 text-[10px] tracking-widest uppercase">
-            © 2026 Shubham & Apurva Wedding
+            © 2026 Apurva & Shubham Wedding
           </p>
           <div className="flex items-center gap-2">
             {[...Array(5)].map((_, i) => (

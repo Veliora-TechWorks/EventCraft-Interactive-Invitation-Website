@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Shubham & Apurva — Wedding Invitation",
-  description: "Join us to celebrate the wedding of Shubham & Apurva",
+  title: "Apurva & Shubham — Wedding Invitation",
+  description: "Join us to celebrate the wedding of Apurva & Shubham",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },

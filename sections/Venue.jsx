@@ -6,11 +6,11 @@ const MAP = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.5!2d73.7
 
 export default function Venue() {
   const calendar = () => window.open(
-    "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shubham+%26+Apurva+Wedding&dates=20260514T043000Z/20260514T083000Z&details=Lagna+Ceremony&location=Swami+Narayan+Banquet+Hall%2C+Adgaon+Naka%2C+Vaishnavi+Park%2C+Nashik%2C+Maharashtra+422003",
+    "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Apurva+%26+Shubham+Wedding&dates=20260514T043000Z/20260514T083000Z&details=Lagna+Ceremony&location=Swami+Narayan+Banquet+Hall%2C+Adgaon+Naka%2C+Vaishnavi+Park%2C+Nashik%2C+Maharashtra+422003",
     "_blank"
   );
   const whatsapp = () => window.open(
-    "https://wa.me/919876543210?text=Hi!+I+would+like+to+RSVP+for+Shubham+%26+Apurva's+wedding+on+14+May+2026+%F0%9F%8E%89",
+    "https://wa.me/919876543210?text=Hi!+I+would+like+to+RSVP+for+Apurva+%26+Shubham's+wedding+on+14+May+2026+%F0%9F%8E%89",
     "_blank"
   );
 
@@ -42,7 +42,7 @@ export default function Venue() {
       </div>
       <div className="flex flex-wrap gap-3 mb-1 text-xs font-poppins text-dark/50">
         <span className="bg-gold/10 border border-gold/20 rounded-full px-3 py-1">📅 14 May 2026</span>
-        <span className="bg-gold/10 border border-gold/20 rounded-full px-3 py-1">🕙 10:00 AM onwards</span>
+        <span className="bg-gold/10 border border-gold/20 rounded-full px-3 py-1">🕙 10:25 AM</span>
         <span className="bg-gold/10 border border-gold/20 rounded-full px-3 py-1">📍 Nashik, MH</span>
       </div>
     </div>

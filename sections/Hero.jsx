@@ -96,7 +96,7 @@ export default function Hero({ onOpen }) {
                   </svg>
                   <div className="absolute inset-3 rounded-full border border-gold/35" style={{ background: "radial-gradient(circle at 40% 40%,rgba(212,175,55,0.12),transparent)" }} />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-vibes text-gold" style={{ fontSize: "clamp(1.1rem,3.5vw,1.6rem)", textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>S & A</span>
+                    <span className="font-vibes text-gold" style={{ fontSize: "clamp(1.1rem,3.5vw,1.6rem)", textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>A & S</span>
                   </div>
                 </div>
                 <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 2.2, repeat: Infinity }}
@@ -146,9 +146,10 @@ export default function Hero({ onOpen }) {
             <div className="relative w-full" style={{ height: "62vh" }}>
               <Image
                 src="/images/Hero Section Mobile.jpeg"
-                alt="Shubham & Apurva"
+                alt="Apurva & Shubham"
                 fill
                 priority
+                sizes="100vw"
                 className="object-cover object-top"
               />
               {/* subtle bottom fade into text block */}
@@ -170,7 +171,7 @@ export default function Hero({ onOpen }) {
               <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }}
                 className="mb-4">
                 <h1 className="font-vibes text-cream leading-none" style={{ fontSize: "clamp(3.4rem,16vw,5rem)", textShadow: "0 2px 16px rgba(0,0,0,0.5)" }}>
-                  Shubham
+                  Apurva
                 </h1>
                 <div className="flex items-center justify-center gap-2 my-1.5">
                   <div className="h-px w-8 bg-gold/50" />
@@ -178,7 +179,7 @@ export default function Hero({ onOpen }) {
                   <div className="h-px w-8 bg-gold/50" />
                 </div>
                 <h1 className="font-vibes text-cream leading-none" style={{ fontSize: "clamp(3.4rem,16vw,5rem)", textShadow: "0 2px 16px rgba(0,0,0,0.5)" }}>
-                  Apurva
+                  Shubham
                 </h1>
               </motion.div>
 
@@ -221,9 +222,10 @@ export default function Hero({ onOpen }) {
               className="relative w-[52%] overflow-hidden">
               <Image
                 src="/images/Hero Section Tablet and Desktop.jpeg"
-                alt="Shubham & Apurva"
+                alt="Apurva & Shubham"
                 fill
                 priority
+                sizes="52vw"
                 className="object-cover object-center"
               />
               {/* right-edge fade into text panel */}
@@ -244,7 +246,7 @@ export default function Hero({ onOpen }) {
               <motion.h1 initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.25, duration: 0.8 }}
                 className="font-vibes text-cream leading-none mb-2"
                 style={{ fontSize: "clamp(3.2rem,7vw,5rem)", textShadow: "0 4px 24px rgba(0,0,0,0.5)" }}>
-                Shubham
+                Apurva
               </motion.h1>
               <motion.div initial={{ opacity: 0, scaleX: 0 }} animate={{ opacity: 1, scaleX: 1 }} transition={{ delay: 0.4 }}
                 className="flex items-center gap-2 mb-2">
@@ -255,7 +257,7 @@ export default function Hero({ onOpen }) {
               <motion.h1 initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5, duration: 0.8 }}
                 className="font-vibes text-cream leading-none mb-6"
                 style={{ fontSize: "clamp(3.2rem,7vw,5rem)", textShadow: "0 4px 24px rgba(0,0,0,0.5)" }}>
-                Apurva
+                Shubham
               </motion.h1>
 
               <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.65, duration: 0.7 }}
@@ -302,9 +304,10 @@ export default function Hero({ onOpen }) {
             {/* Full-bleed photo */}
             <Image
               src="/images/Hero Section Tablet and Desktop.jpeg"
-              alt="Shubham & Apurva"
+              alt="Apurva & Shubham"
               fill
               priority
+              sizes="100vw"
               className="object-cover object-center"
             />
 
@@ -324,7 +327,7 @@ export default function Hero({ onOpen }) {
                 </p>
                 <h1 className="font-vibes text-cream leading-none"
                   style={{ fontSize: "clamp(4.5rem,8vw,7.5rem)", textShadow: "0 4px 28px rgba(0,0,0,0.7)" }}>
-                  Shubham
+                  Apurva
                 </h1>
                 <div className="flex items-center gap-2 my-2">
                   <div className="h-px w-16" style={{ background: "linear-gradient(to right,#D4AF37,transparent)" }} />
@@ -333,7 +336,7 @@ export default function Hero({ onOpen }) {
                 </div>
                 <h1 className="font-vibes text-cream leading-none"
                   style={{ fontSize: "clamp(4.5rem,8vw,7.5rem)", textShadow: "0 4px 28px rgba(0,0,0,0.7)" }}>
-                  Apurva
+                  Shubham
                 </h1>
               </motion.div>
 
@@ -342,7 +345,7 @@ export default function Hero({ onOpen }) {
                 className="flex flex-col items-end gap-4">
                 <div className="flex flex-col gap-3">
                   {[
-                    { icon: FaCalendarAlt, label: "Wedding Date", main: "May 14, 2026", sub: "Thursday · 10:00 AM onwards" },
+                    { icon: FaCalendarAlt, label: "Wedding Date", main: "May 14, 2026", sub: "Thursday · 10:25 AM onwards" },
                     { icon: FaMapMarkerAlt, label: "Venue", main: "Swami Narayan Banquet Hall", sub: "Adgaon Naka, Vaishnavi Park, Nashik 422003" },
                   ].map(({ icon: Icon, label, main, sub }) => (
                     <div key={label} className="rounded-2xl px-5 py-3.5 border border-gold/20 shadow-xl text-right"

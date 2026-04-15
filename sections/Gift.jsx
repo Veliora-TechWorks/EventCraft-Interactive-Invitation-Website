@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FaGift, FaCopy, FaCheck } from "react-icons/fa";
 import { useState } from "react";
 
-const UPI_ID = "shubhamapurva2025@upi";
+const UPI_ID = "apurvaShubham2025@upi";
 
 export default function Gift() {
   const [copied, setCopied] = useState(false);

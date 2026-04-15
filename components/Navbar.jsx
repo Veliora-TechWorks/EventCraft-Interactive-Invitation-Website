@@ -1,14 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaHome, FaCalendarAlt, FaHeart, FaImages, FaEnvelope } from "react-icons/fa";
+import { FaHome, FaCalendarAlt, FaHeart, FaImages } from "react-icons/fa";
 
 const LINKS = [
   { label: "Home",    id: "home",    icon: FaHome },
   { label: "Events",  id: "events",  icon: FaCalendarAlt },
   { label: "Story",   id: "story",   icon: FaHeart },
   { label: "Gallery", id: "gallery", icon: FaImages },
-  { label: "RSVP",    id: "rsvp",    icon: FaEnvelope },
 ];
 
 export default function Navbar() {
@@ -48,7 +47,7 @@ export default function Navbar() {
           scrolled ? "py-3 glass shadow-lg" : "py-5"
         }`}
       >
-        <span className="font-vibes text-3xl text-brown drop-shadow">S & A</span>
+        <span className="font-vibes text-3xl text-brown drop-shadow">A & S</span>
         <ul className="flex gap-8">
           {LINKS.map(({ label, id }) => (
             <li key={id}>
@@ -67,13 +66,7 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <motion.button
-          whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-          onClick={() => go("rsvp")}
-          className="gold-shimmer text-white font-poppins text-xs font-semibold px-5 py-2 rounded-full shadow"
-        >
-          RSVP Now
-        </motion.button>
+
       </motion.nav>
 
       {/* ══════════════════════════════════════════
@@ -86,7 +79,7 @@ export default function Navbar() {
         className="hidden md:flex lg:hidden fixed top-4 left-1/2 -translate-x-1/2 z-50"
       >
         <div className="flex items-center gap-1 glass rounded-full px-3 py-2 shadow-xl border border-gold/20">
-          <span className="font-vibes text-xl text-brown mr-2 pl-1">S&A</span>
+          <span className="font-vibes text-xl text-brown mr-2 pl-1">A&S</span>
           {LINKS.map(({ label, id }) => (
             <button
               key={id}
