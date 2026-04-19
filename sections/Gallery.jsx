@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaTimes, FaChevronLeft, FaChevronRight, FaExpand } from "react-icons/fa";
+import { FaTimes, FaChevronLeft, FaChevronRight, FaExpand, FaPlay, FaPause } from "react-icons/fa";
 
 // 01,02,05,06,07,08,09 = portrait | 03,04 = landscape
 const PHOTOS = [
@@ -17,9 +17,15 @@ const PHOTOS = [
 ];
 
 /* ── Lightbox ── */
-function Lightbox({ lb, setLb }) {
+function Lightbox({ lb, setLb, slideshow, setSlideshow }) {
   const prev = () => setLb(l => (l > 0 ? l - 1 : PHOTOS.length - 1));
   const next = () => setLb(l => (l < PHOTOS.length - 1 ? l + 1 : 0));
+
+  useEffect(() => {
+    if (!slideshow || lb === null) return;
+    const id = setInterval(() => setLb(l => (l < PHOTOS.length - 1 ? l + 1 : 0)), 3000);
+    return () => clearInterval(id);
+  }, [slideshow, lb]);
 
   return (
     <AnimatePresence>
@@ -27,9 +33,13 @@ function Lightbox({ lb, setLb }) {
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
-          onClick={() => setLb(null)}>
+          onClick={() => { setLb(null); setSlideshow(false); }}>
           <button className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"
-            onClick={() => setLb(null)}><FaTimes /></button>
+            onClick={() => { setLb(null); setSlideshow(false); }}><FaTimes /></button>
+          <button className="absolute top-5 right-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"
+            onClick={e => { e.stopPropagation(); setSlideshow(s => !s); }}>
+            {slideshow ? <FaPause className="text-sm" /> : <FaPlay className="text-sm" />}
+          </button>
           <button className="absolute left-3 md:left-8 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"
             onClick={e => { e.stopPropagation(); prev(); }}><FaChevronLeft /></button>
           <motion.img key={lb}
@@ -78,6 +88,7 @@ function Cell({ photo, index, onClick, className, style }) {
 
 export default function Gallery() {
   const [lb, setLb] = useState(null);
+  const [slideshow, setSlideshow] = useState(false);
   const P = PHOTOS;
 
   return (
@@ -88,9 +99,14 @@ export default function Gallery() {
         viewport={{ once: true }} className="text-center mb-10 px-4">
         <p className="font-poppins text-brown/60 uppercase tracking-widest text-xs mb-2">Memories</p>
         <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl text-brown mb-4">Our Gallery 📸</h2>
-        <div className="flex items-center justify-center gap-3">
+        <div className="flex items-center justify-center gap-3 mb-5">
           <div className="h-px w-12 bg-gold/40" /><span className="text-gold">✦</span><div className="h-px w-12 bg-gold/40" />
         </div>
+        <button
+          onClick={() => { setLb(0); setSlideshow(true); }}
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gold/50 text-gold font-poppins text-xs uppercase tracking-widest hover:bg-gold/10 transition-colors">
+          <FaPlay className="text-[10px]" /> Slideshow
+        </button>
       </motion.div>
 
       {/* ══ MOBILE (<md) ══
@@ -210,7 +226,7 @@ export default function Gallery() {
         </div>
       </div>
 
-      <Lightbox lb={lb} setLb={setLb} />
+      <Lightbox lb={lb} setLb={setLb} slideshow={slideshow} setSlideshow={setSlideshow} />
     </section>
   );
 }

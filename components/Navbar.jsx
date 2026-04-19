@@ -1,12 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaHome, FaCalendarAlt, FaHeart, FaImages } from "react-icons/fa";
+import { FaHome, FaCalendarAlt, FaImages } from "react-icons/fa";
 
 const LINKS = [
   { label: "Home",    id: "home",    icon: FaHome },
   { label: "Events",  id: "events",  icon: FaCalendarAlt },
-  { label: "Story",   id: "story",   icon: FaHeart },
   { label: "Gallery", id: "gallery", icon: FaImages },
 ];
 
