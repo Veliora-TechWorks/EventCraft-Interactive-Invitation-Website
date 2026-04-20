@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { FaTimes, FaChevronLeft, FaChevronRight, FaExpand, FaPlay, FaPause } from "react-icons/fa";
 
 // 01,02,05,06,07,08,09 = portrait | 03,04 = landscape
@@ -42,9 +43,10 @@ function Lightbox({ lb, setLb, slideshow, setSlideshow }) {
           </button>
           <button className="absolute left-3 md:left-8 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"
             onClick={e => { e.stopPropagation(); prev(); }}><FaChevronLeft /></button>
-          <motion.img key={lb}
-            initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          <Image key={lb}
             src={PHOTOS[lb].src} alt={PHOTOS[lb].alt}
+            width={1200} height={900}
+            quality={85} sizes="90vw"
             className="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl object-contain"
             onClick={e => e.stopPropagation()} />
           <button className="absolute right-3 md:right-8 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"
@@ -72,8 +74,12 @@ function Cell({ photo, index, onClick, className, style }) {
       className={`relative overflow-hidden rounded-2xl cursor-pointer group shadow-lg ${className}`}
       style={style}
       onClick={onClick}>
-      <img src={photo.src} alt={photo.alt}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+      <Image src={photo.src} alt={photo.alt}
+        fill sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+        quality={75}
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+        placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoH BwYIDAoMCwsKCwsNCxAQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/wAAR CAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgUEA//EACIQA AIBBAIDAQAAAAAAAAAAAAECAwQREiExBRNBUf/EABUBAQEAAAAAAAAAAAAAAA AAAEC/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEB/9oADAMBAAIRAxEAPwCw1bnF a3lSGGNpJHOFVRkk1Wt7W4uZBHBE8jnoqjJqxoumXF7qUUUcTlN2WbHQD1 NFFAHbW2mWlnGI4IEjUdlGKKKKAP/Z" />
       <div className="absolute inset-0"
         style={{ background: "linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 50%)" }} />
       <div className="absolute bottom-3 left-3">
@@ -194,7 +200,11 @@ export default function Gallery() {
             viewport={{ once: true }} transition={{ delay: 0.05 }}
             className="col-span-1 row-span-2 relative overflow-hidden rounded-3xl cursor-pointer group shadow-xl"
             onClick={() => setLb(0)}>
-            <img src={P[0].src} alt={P[0].alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <Image src={P[0].src} alt={P[0].alt}
+            fill sizes="25vw" quality={75}
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+            placeholder="blur" blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoH BwYIDAoMCwsKCwsNCxAQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/wAAR CAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgUEA//EACIQA AIBBAIDAQAAAAAAAAAAAAECAwQREiExBRNBUf/EABUBAQEAAAAAAAAAAAAAAA AAAEC/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEB/9oADAMBAAIRAxEAPwCw1bnF a3lSGGNpJHOFVRkk1Wt7W4uZBHBE8jnoqjJqxoumXF7qUUUcTlN2WbHQD1 NFFAHbW2mWlnGI4IEjUdlGKKKKAP/Z" />
             <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 50%)" }} />
             <div className="absolute bottom-5 left-4">
               <p className="font-poppins text-white/60 text-[9px] uppercase tracking-widest mb-0.5">Featured</p>

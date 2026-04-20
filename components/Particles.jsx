@@ -10,7 +10,7 @@ export default function Particles() {
     const symbols = ["✿", "❀", "✦", "❋", "♡", "✧"];
     const particles = [];
 
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 12; i++) {
       const el = document.createElement("div");
       el.className = "particle fixed pointer-events-none select-none z-0";
       el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
@@ -22,6 +22,7 @@ export default function Particles() {
         opacity: ${Math.random() * 0.4 + 0.1};
         animation-duration: ${Math.random() * 15 + 10}s;
         animation-delay: ${Math.random() * 10}s;
+        will-change: transform;
       `;
       container.appendChild(el);
       particles.push(el);

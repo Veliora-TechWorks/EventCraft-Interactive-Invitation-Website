@@ -23,7 +23,7 @@ export default function Navbar() {
         if (el && window.scrollY >= el.offsetTop - 120) { setActive(l.id); break; }
       }
     };
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 

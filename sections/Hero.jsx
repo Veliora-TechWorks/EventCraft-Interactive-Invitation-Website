@@ -120,7 +120,7 @@ export default function Hero({ onOpen }) {
           {/* petals — all screens */}
           {mounted && PETALS.map((p, i) => (
             <motion.div key={i} className="absolute pointer-events-none text-blush/60 select-none z-20"
-              style={{ left: p.left, top: "-30px", fontSize: p.size }}
+              style={{ left: p.left, top: "-30px", fontSize: p.size, willChange: "transform" }}
               animate={{ y: ["0vh", "110vh"], rotate: [0, 360], x: [0, 25, -15, 8, 0] }}
               transition={{ duration: p.dur, delay: p.delay, repeat: Infinity, ease: "linear" }}>
               ✿
@@ -150,6 +150,7 @@ export default function Hero({ onOpen }) {
                 fill
                 priority
                 sizes="100vw"
+                quality={85}
                 className="object-cover object-top"
               />
               {/* subtle bottom fade into text block */}
@@ -226,6 +227,7 @@ export default function Hero({ onOpen }) {
                 fill
                 priority
                 sizes="52vw"
+                quality={85}
                 className="object-cover object-center"
               />
               {/* right-edge fade into text panel */}
@@ -308,6 +310,7 @@ export default function Hero({ onOpen }) {
               fill
               priority
               sizes="100vw"
+              quality={85}
               className="object-cover object-center"
             />
 

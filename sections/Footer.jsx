@@ -196,13 +196,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-2">
             {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                animate={{ opacity: [0.2, 1, 0.2] }}
-                transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-              >
-                <FaHeart className="text-blush text-[8px]" />
-              </motion.div>
+              <FaHeart key={i} className="text-blush text-[8px]" style={{ opacity: 0.4, animation: `pulse 2s ease-in-out ${i * 0.3}s infinite` }} />
             ))}
           </div>
           <p className="font-poppins text-cream/20 text-[10px] tracking-widest uppercase">
